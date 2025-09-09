@@ -13,9 +13,11 @@ public class ArraysLesson {
          необходимо вывести все нечетные числа из массива.
          */
         int[] array = {9, 2, 6, 4, 5, 12, 7, 8, 6};
-        for (int i = 0; i < array.length; ) {
-            System.out.println(array[i]);
-            i += 2;
+        System.out.println("odd numbers: ");
+        for (int i = 0; i < array.length;i++) {
+            if(array[i]%2!=0) {
+                System.out.println(" " + array[i]);
+            }
         }
 
         System.out.println("Task 2: ");
@@ -24,9 +26,10 @@ public class ArraysLesson {
          необходимо вывести все значения массива больше 5.
          */
         int[] array2 = {9, 2, 6, 4, 5, 12, 7, 8, 6};
+        System.out.println("numbers > 5: ");
         for (int i = 0; i < array.length; i++) {
-            if (array[i] > 5) {
-                System.out.println(array[i]);
+            if (array2[i] > 5) {
+                System.out.println(" " + array2[i]);
             }
         }
 
@@ -37,8 +40,9 @@ public class ArraysLesson {
          */
         int[] array3 = {9, 2, 6, 4, 5, 12, 7, 8, 6};
         for (int i = 0; i < array.length; i++) {
+            System.out.println("old value = " + array3[i]);
             array3[i] = array3[i] + 15;
-            System.out.println(array3[i]);
+            System.out.println("new value = " + array3[i]);
         }
 
         System.out.println("Task 4: ");
@@ -49,15 +53,15 @@ public class ArraysLesson {
          Для указанной строки ответ будет “ооооо” (или в столбик)
 
          */
-        String s = "Перестановочный алгоритм быстрого действия";
+        String s = "Перестановочный алгоритм быстрOго действия";
         char[] chars = s.toCharArray();
         String result = "";
         for (int i = 0; i < chars.length; i++) {
-            if (chars[i] == 'о') {
+            if (chars[i] == 'о' || chars[i] == 'O') {
                 result += chars[i];
             }
         }
-        System.out.println(result);
+        System.out.println("All letters \"o or O\": " + result);
 
         System.out.println("Task 5: ");
         /**
@@ -74,7 +78,7 @@ public class ArraysLesson {
                 result2 += chars2[i];
             }
         }
-        System.out.println(result2.length());
+        System.out.println("All letters \"е\" : " + result2.length());
 
         System.out.println("Task 6: ");
         /*
@@ -88,7 +92,7 @@ public class ArraysLesson {
         for (int i = 0; i < array4.length; i++) {
             result4 += array4[i];
         }
-        System.out.println(result4);
+        System.out.println("sum of all values = " + result4);
 
         System.out.println("Task 7: ");
         /*
@@ -109,7 +113,6 @@ public class ArraysLesson {
             sum += numberInBox[i];
         }
         avg = sum / numberInBox.length;
-        System.out.println("avg = " + avg);
 
         for (int i = 0; i < numberInBox.length; i++) {
             if (Math.abs(numberInBox[i] - avg) > 3) {
@@ -129,7 +132,8 @@ public class ArraysLesson {
             startIndx += 1;
         }
 
-        System.out.println(Arrays.toString(resultArray));
+        System.out.printf("avg = %.3f: ", avg);
+        System.out.println("More than avg by 3: " + Arrays.toString(resultArray));
 
         System.out.println("Task5.1: ");
         /*
@@ -248,14 +252,12 @@ public class ArraysLesson {
             }
         }
 
-        System.out.println(count);
-
         count = 0;
         for (int[] ar : array14) {
             count = count + ar.length;
         }
 
-        System.out.println(count);
+        System.out.println("count = " + count);
 
         System.out.println("Task 6.1 ");
         /*
@@ -381,14 +383,14 @@ public class ArraysLesson {
         Зеркально преобразуйте его вокруг диагонали от верхнего левого до нижнего правого угла.
          */
 
-        String[][] array19 = {{"a00", "a01", "a02", "a03", "a04"},
-                {"a10", "a11", "a12", "a13", "a14"},
-                {"a20", "a21", "a22", "a23", "a24"},
-                {"a30", "a31", "a32", "a33", "a34"},
-                {"a40", "a41", "a42", "a43", "a44"}};
+        String[][] array19 = { {"a00", "a01", "a02", "a03", "a04"},
+                               {"a10", "a11", "a12", "a13", "a14"},
+                               {"a20", "a21", "a22", "a23", "a24"},
+                               {"a30", "a31", "a32", "a33", "a34"},
+                               {"a40", "a41", "a42", "a43", "a44"}};
 
         int srcRow19 = array19.length; //5
-        int srcCol19 = array19[srcRow - 1].length; //5
+        int srcCol19 = array19[srcRow-1].length;//5
 
         String[][] array20 = new String[srcRow19][srcCol19];
 
@@ -397,6 +399,12 @@ public class ArraysLesson {
                 array20[i][j] = array19[j][i];
             }
 
+        }
+        for (int i = 0; i < srcRow19; i++) {
+            for (int j = 0; j < srcCol19; j++) {
+                if(j!=(srcCol19-1)){
+                    System.out.print(array20[i][j]);
+                } else System.out.println("");}
         }
         System.out.println(Arrays.deepToString(array20));
 

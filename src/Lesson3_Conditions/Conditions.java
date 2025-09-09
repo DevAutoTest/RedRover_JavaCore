@@ -1,9 +1,5 @@
 package Lesson3_Conditions;
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.sql.SQLOutput;
-
 public class Conditions {
     public static void main(String[] args) {
         /**Необходимо создать две целочисленные переменные (a, b), присвоить произвольные значения переменным на ваш выбор и
@@ -105,7 +101,7 @@ public class Conditions {
         System.out.println("output 2: ");
         do {
             System.out.println(initValue);
-            initValue+=4;
+            initValue += 4;
         }
         while (initValue <= 60);
 
