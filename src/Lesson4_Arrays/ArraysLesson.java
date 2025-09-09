@@ -389,17 +389,27 @@ public class ArraysLesson {
                                {"a30", "a31", "a32", "a33", "a34"},
                                {"a40", "a41", "a42", "a43", "a44"}};
 
+
         int srcRow19 = array19.length; //5
         int srcCol19 = array19[srcRow-1].length;//5
 
+        for (int i = 0; i < srcRow19; i++) {
+            for (int j = 0; j < srcCol19; j++) {
+                if(j!=(srcCol19-1)){
+                    System.out.print(array19[i][j]);
+                } else System.out.println("");}
+        }
+
+        System.out.println("decision: ");
         String[][] array20 = new String[srcRow19][srcCol19];
 
         for (int i = 0; i < srcRow19; i++) {
             for (int j = 0; j < srcCol19; j++) {
                 array20[i][j] = array19[j][i];
             }
-
         }
+
+
         for (int i = 0; i < srcRow19; i++) {
             for (int j = 0; j < srcCol19; j++) {
                 if(j!=(srcCol19-1)){
