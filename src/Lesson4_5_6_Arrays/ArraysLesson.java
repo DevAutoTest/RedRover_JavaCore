@@ -1,9 +1,9 @@
-package Lesson4_Arrays;
+package Lesson4_5_6_Arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static Lesson4_Arrays.ArraysLesson.MailName.longestEmail;
+import static Lesson4_5_6_Arrays.ArraysLesson.MailName.longestEmail;
 
 public class ArraysLesson {
     public static void main(String[] args) {
@@ -383,11 +383,11 @@ public class ArraysLesson {
         Зеркально преобразуйте его вокруг диагонали от верхнего левого до нижнего правого угла.
          */
 
-        String[][] array19 = { {"a00", "a01", "a02", "a03", "a04"},
-                               {"a10", "a11", "a12", "a13", "a14"},
-                               {"a20", "a21", "a22", "a23", "a24"},
-                               {"a30", "a31", "a32", "a33", "a34"},
-                               {"a40", "a41", "a42", "a43", "a44"}};
+        String[][] array19 = { {"00 ", "01 ", "02 ", "03 ", "04 "},
+                               {"10 ", "11 ", "12 ", "13 ", "14 "},
+                               {"20 ", "21 ", "22 ", "23 ", "24 "},
+                               {"30 ", "31 ", "32 ", "33 ", "34 "},
+                               {"40 ", "41 ", "42 ", "43 ", "44 "}};
 
 
         int srcRow19 = array19.length; //5
@@ -408,8 +408,6 @@ public class ArraysLesson {
                 array20[i][j] = array19[j][i];
             }
         }
-
-
         for (int i = 0; i < srcRow19; i++) {
             for (int j = 0; j < srcCol19; j++) {
                 if(j!=(srcCol19-1)){
