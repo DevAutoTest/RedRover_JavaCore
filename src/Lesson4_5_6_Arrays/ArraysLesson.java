@@ -1,5 +1,7 @@
 package Lesson4_5_6_Arrays;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -14,8 +16,8 @@ public class ArraysLesson {
          */
         int[] array = {9, 2, 6, 4, 5, 12, 7, 8, 6};
         System.out.println("odd numbers: ");
-        for (int i = 0; i < array.length;i++) {
-            if(array[i]%2!=0) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 != 0) {
                 System.out.println(" " + array[i]);
             }
         }
@@ -383,21 +385,22 @@ public class ArraysLesson {
         Зеркально преобразуйте его вокруг диагонали от верхнего левого до нижнего правого угла.
          */
 
-        String[][] array19 = { {"00 ", "01 ", "02 ", "03 ", "04 "},
-                               {"10 ", "11 ", "12 ", "13 ", "14 "},
-                               {"20 ", "21 ", "22 ", "23 ", "24 "},
-                               {"30 ", "31 ", "32 ", "33 ", "34 "},
-                               {"40 ", "41 ", "42 ", "43 ", "44 "}};
+        String[][] array19 = {{"00 ", "01 ", "02 ", "03 ", "04 "},
+                {"10 ", "11 ", "12 ", "13 ", "14 "},
+                {"20 ", "21 ", "22 ", "23 ", "24 "},
+                {"30 ", "31 ", "32 ", "33 ", "34 "},
+                {"40 ", "41 ", "42 ", "43 ", "44 "}};
 
 
         int srcRow19 = array19.length; //5
-        int srcCol19 = array19[srcRow-1].length;//5
+        int srcCol19 = array19[srcRow - 1].length;//5
 
         for (int i = 0; i < srcRow19; i++) {
             for (int j = 0; j < srcCol19; j++) {
-                if(j!=(srcCol19-1)){
+                if (j != (srcCol19 - 1)) {
                     System.out.print(array19[i][j]);
-                } else System.out.println("");}
+                } else System.out.println("");
+            }
         }
 
         System.out.println("decision: ");
@@ -410,9 +413,10 @@ public class ArraysLesson {
         }
         for (int i = 0; i < srcRow19; i++) {
             for (int j = 0; j < srcCol19; j++) {
-                if(j!=(srcCol19-1)){
+                if (j != (srcCol19 - 1)) {
                     System.out.print(array20[i][j]);
-                } else System.out.println("");}
+                } else System.out.println("");
+            }
         }
         System.out.println(Arrays.deepToString(array20));
 
@@ -448,7 +452,7 @@ public class ArraysLesson {
         int digits = TextUtils.digitsCount(text);
         System.out.println("digits = " + digits);
         int wightSpaces = TextUtils.whiteSpaceCount(text);
-        System.out.println("wightsapces = " + wightSpaces);
+        System.out.println("wightspaces = " + wightSpaces);
         int punctuations = TextUtils.punctuationsCount(text);
         System.out.println("punctuations = " + punctuations);
         int vowels = TextUtils.vowelsLettersCount(text);
@@ -466,7 +470,7 @@ public class ArraysLesson {
         -цифру
         -знак препинания из списка: ~@#$%^&*()_-+=
         -и не иметь пробелов и символов НЕ упомянутых в этом перечислении.
-
+  // String password2 = "weert234!F@$%";
        */
 
         String password = "Lena1234 @";
@@ -503,16 +507,16 @@ public class ArraysLesson {
         */
 
         String[][] array21 = {
-                {"a00", "a01", "a02", "a03", "a04", "a05", "a06", "a07", "a08", "a09"},
-                {"a10", "a11", "a12", "a13", "a14", "a15", "a16", "a17", "a18", ""},
-                {"a20", "a21", "a22", "a23", "a24", "a25", "a26", "a27", "", ""},
-                {"a30", "a31", "a32", "a33", "a34", "a35", "a36", "", "", ""},
-                {"a40", "a41", "a42", "a43", "a44", "a45", "", "", "", ""},
-                {"a50", "a51", "a52", "a53", "a54", "", "", "", "", ""},
-                {"a60", "a61", "a62", "a63", "", "", "", "", "", ""},
-                {"a70", "a71", "a72", "", "", "", "", "", "", ""},
-                {"a80", "a81", "", "", "", "", "", "", "", ""},
-                {"a90", "", "", "", "", "", "", "", "", ""}
+                {"00 ", "01 ", "02 ", "03 ", "04 ", "05 ", "06 ", "07 ", "08 ", "09 "},
+                {"10 ", "11 ", "12 ", "13 ", "14 ", "15 ", "16 ", "17 ", "18 ", ""},
+                {"20 ", "21 ", "22 ", "23 ", "24 ", "25 ", "26 ", "27 ", "", ""},
+                {"30 ", "31 ", "32 ", "33 ", "34 ", "35 ", "36 ", "", "", ""},
+                {"40 ", "41 ", "42 ", "43 ", "44 ", "45 ", "", "", "", ""},
+                {"50 ", "51 ", "52 ", "53 ", "54 ", "", "", "", "", ""},
+                {"60 ", "61 ", "62 ", "63 ", "", "", "", "", "", ""},
+                {"70 ", "71 ", "72 ", "", "", "", "", "", "", ""},
+                {"80 ", "81 ", "", "", "", "", "", "", "", ""},
+                {"90 ", "", "", "", "", "", "", "", "", ""}
         };
 
         String[][] array22 = new String[10][10];
@@ -521,32 +525,52 @@ public class ArraysLesson {
         String space = "   "; // зависит от количества символов в значении, у меня = 3, поэтому 3 пробела
 
 
-        for (int i = 0; i <= columns; i++) {
-            for (int j = i; j <= rows; j++) {
+        for (
+                int i = 0;
+                i <= columns; i++) {
+            for (
+                    int j = i;
+                    j <= rows; j++) {
                 if (i == 0) {
-                    array22[j][i] = space.repeat(columns - j) + array21[j - i][i] + space;
+                    array22[j][i] = space.
+
+                            repeat(columns - j) + array21[j - i][i] + space;
                 } else array22[j][i] = array21[j - i][i] + space;
             }
         }
 
-        for (int i = 0; i <= columns; i++) {
-            for (int j = 0; j <= rows; j++) {
+        for (
+                int i = 0;
+                i <= columns; i++) {
+            for (
+                    int j = 0;
+                    j <= rows; j++) {
                 if (array22[i][j] == null) {
                     array22[i][j] = space;
                 }
             }
         }
 
-        for (int i = 0; i <= rows; i++) {
-            for (int j = 0; j <= columns; j++) {
+        for (
+                int i = 0;
+                i <= rows; i++) {
+            for (
+                    int j = 0;
+                    j <= columns; j++) {
                 if (j != columns) {
-                    System.out.print(array22[i][j]);
-                } else System.out.print(array22[i][j] + "\n");
+                    System.out.
+
+                            print(array22[i][j]);
+                } else System.out.
+
+                        print(array22[i][j] + "\n");
             }
         }
 
 
-        System.out.println("Task 6.9 : ");
+        System.out.
+
+                println("Task 6.9 : ");
 
         /* [Открыть Arrays_Task9.png](src/main/resources/Arrays_Task9.png) */
 
@@ -584,10 +608,16 @@ public class ArraysLesson {
         int rows24 = array23.length - 1; // 0-9
         String space24 = "   "; // зависит от количества символов в значении, у меня = 3, поэтому 3 пробела
 
-        for (int i = 0; i <= columns24; i++) {
-            for (int j = i, k = rows24; j <= rows24 && k >= 0; j++, k--) {
+        for (
+                int i = 0;
+                i <= columns24; i++) {
+            for (
+                    int j = i, k = rows24;
+                    j <= rows24 && k >= 0; j++, k--) {
                 if (i == 0) {
-                    array24[j][i] = space.repeat(columns - j) + array23[i][k] + space;
+                    array24[j][i] = space.
+
+                            repeat(columns - j) + array23[i][k] + space;
                 }
                 if (i != 0 && k >= i) {
                     array24[j][i] = array23[i][k] + space;
@@ -596,8 +626,12 @@ public class ArraysLesson {
         }
 
         //replace null values
-        for (int i = 0; i <= columns24; i++) {
-            for (int j = 0; j <= rows24; j++) {
+        for (
+                int i = 0;
+                i <= columns24; i++) {
+            for (
+                    int j = 0;
+                    j <= rows24; j++) {
                 if (array24[i][j] == null) {
                     array24[i][j] = space;
                 }
@@ -605,31 +639,41 @@ public class ArraysLesson {
         }
 
         //Print array24:
-        for (int i = 0; i <= rows24; i++) {
-            for (int j = 0; j <= columns24; j++) {
+        for (
+                int i = 0;
+                i <= rows24; i++) {
+            for (
+                    int j = 0;
+                    j <= columns24; j++) {
                 if (j != columns) {
-                    System.out.print(array24[i][j]);
-                } else System.out.print(array24[i][j] + "\n");
+                    System.out.
+
+                            print(array24[i][j]);
+                } else System.out.
+
+                        print(array24[i][j] + "\n");
             }
         }
 
-        System.out.println("Task 6.9 : ");
+        System.out.
 
-        /*
-        Задача № 10
+                println("Task 6.9 : ");
+
+/*
+Задача № 10
 
 9 8 7 6 5 4 3 2 1 0 1 2 3 4 5 6 7 8 9
-   8 7 6 5 4 3 2 1 0 1 2 3 4 5 6 7 8
-      7 6 5 4 3 2 1 0 1 2 3 4 5 6 7
-         6 5 4 3 2 1 0 1 2 3 4 5 6
-            5 4 3 2 1 0 1 2 3 4 5
-               4 3 2 1 0 1 2 3 4
-                  3 2 1 0 1 2 3
-                     2 1 0 1 2
-                        1 0 1
-                           0
+8 7 6 5 4 3 2 1 0 1 2 3 4 5 6 7 8
+7 6 5 4 3 2 1 0 1 2 3 4 5 6 7
+ 6 5 4 3 2 1 0 1 2 3 4 5 6
+    5 4 3 2 1 0 1 2 3 4 5
+       4 3 2 1 0 1 2 3 4
+          3 2 1 0 1 2 3
+             2 1 0 1 2
+                1 0 1
+                   0
 
-         */
+ */
         String[][] array25 = {
                 {"9", "8", "7", "6", "5", "4", "3", "2", "1", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"},
                 {"", "8", "7", "6", "5", "4", "3", "2", "1", "0", "1", "2", "3", "4", "5", "6", "7", "8", ""},
@@ -649,27 +693,45 @@ public class ArraysLesson {
         int columns25 = array25[rows25 - 1].length - 1; //18
         String space26 = " ";
 
-        for (int i = rows25, k = 0; i >= 0 && k <= columns25; i--, k++) {
-            for (int j = k; j <= columns25; j++) {
+        for (
+                int i = rows25, k = 0;
+                i >= 0 && k <= columns25; i--, k++) {
+            for (
+                    int j = k;
+                    j <= columns25; j++) {
                 array26[i][j] = array25[k][j]; //90=00 ; 91=01 .....918=018
                 //81=11 ; 82=12 .....817=117
             }
         }
 
-        for (int i = 0; i < rows25; i++) {
-            for (int j = 0; j < columns25; j++) {
-                if (array26[i][j] == null || array26[i][j].isEmpty()) {
+        for (
+                int i = 0;
+                i < rows25; i++) {
+            for (
+                    int j = 0;
+                    j < columns25; j++) {
+                if (array26[i][j] == null || array26[i][j].
+
+                        isEmpty()) {
                     array26[i][j] = space26;
                 }
             }
         }
 
         //Print array26:
-        for (int i = 0; i <= rows25; i++) { //
-            for (int j = 0; j <= columns25; j++) {
+        for (
+                int i = 0;
+                i <= rows25; i++) { //
+            for (
+                    int j = 0;
+                    j <= columns25; j++) {
                 if (j != columns25) {
-                    System.out.print(array26[i][j]);
-                } else System.out.print(array26[i][j] + "\n");
+                    System.out.
+
+                            print(array26[i][j]);
+                } else System.out.
+
+                        print(array26[i][j] + "\n");
             }
         }
     }
