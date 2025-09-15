@@ -14,79 +14,34 @@ public class Kata {
         System.out.println(declareWinner(new Fighter("Lew", 10, 2), new Fighter("Harry", 5, 4), "Lew"));
         System.out.println("\n");
         System.out.println(declareWinner(new Fighter("Lew", 10, 2), new Fighter("Harry", 5, 4), "Harry"));
+
+        System.out.println(declareWinner(new Fighter("Harald", 20, 5), new Fighter("Harry", 5, 4), "Harry"));
+        System.out.println(declareWinner(new Fighter("Harald", 20, 5), new Fighter("Harry", 5, 4), "Harald"));
+        System.out.println(declareWinner(new Fighter("Jerry", 30, 3), new Fighter("Harald", 20, 5), "Jerry"));
+        System.out.println(declareWinner(new Fighter("Jerry", 30, 3), new Fighter("Harald", 20, 5), "Harald"));
     }
 
     public static String declareWinner(Fighter fighter1, Fighter fighter2, String firstAttacker) {
+        Fighter attaker = firstAttacker.equals(fighter1.name) ? fighter1 : fighter2;
+        Fighter defender = attaker == fighter1 ? fighter2 : fighter1;
+        String result = "";
 
-        int damage;
-        int health;
-        int score;
-
-        int damage2;
-        int health2;
-        int score2;
-
-        String result = null;
-
-        if (firstAttacker.equals(fighter1.name)) {
-            damage = fighter1.damagePerAttack;
-            health = fighter2.health;
-            score = health - damage;
-
-            damage2 = fighter2.damagePerAttack;
-            health2 = fighter1.health;
-            score2 = health2 - damage2;
-
-            do {
-                System.out.printf("%s attacks %s; %s now has %d health.\n", fighter1.name, fighter2.name, fighter2.name, score);
-                health-=damage;
-                score = health - damage;
-                System.out.printf("%s attacks %s; %s now has %d health.\n", fighter2.name, fighter1.name, fighter1.name, score2);
-                health2-=damage2;
-                score2 = health2 - damage2;
+        do {
+            defender.health -= attaker.damagePerAttack;
+            if (defender.health <= 0) {
+                //System.out.printf("%s attacks %s; %s now has %d health and is dead. %s wins.\n", attaker.name, defender.name, defender.name, defender.health, attaker.name);
+                result = attaker.name;
+                break;
             }
-            while (health - damage >= 0 || health2 - damage2 >= 0);
+            //System.out.printf("%s attacks %s; %s now has %d health.\n", attaker.name, defender.name, defender.name, defender.health);
 
-            if(health - damage < 0 ) {
-              result = String.format("%s attacks %s; %s now has %d health and is dead. %s wins.\n", fighter1.name, fighter2.name, fighter2.name, score, fighter1.name);
-              return result;
-            }
-            if(health2 - damage2 < 0) {
-               result =  String.format("%s attacks %s; %s now has %d health and is dead. %s wins.\n", fighter2.name, fighter1.name, fighter1.name, score2, fighter2.name);
-               return result;
-            }
-
+            Fighter temp = attaker;
+            attaker = defender;
+            defender = temp;
         }
-        if (firstAttacker.equals(fighter2.name)) {
-            damage = fighter2.damagePerAttack;
-            health = fighter1.health;
-            score = health - damage;
+        while (defender.health > 0);
 
-            damage2 = fighter1.damagePerAttack;
-            health2 = fighter2.health;
-            score2 = health2 - damage2;
-
-            do {
-                System.out.printf("%s attacks %s; %s now has %d health.\n", fighter2.name, fighter1.name, fighter1.name, score);
-                health-=damage;
-                score = health - damage;
-                System.out.printf("%s attacks %s; %s now has %d health.\n", fighter1.name, fighter2.name, fighter2.name, score2);
-                health2-=damage2;
-                score2 = health2 - damage2;
-            }
-            while (health - damage >= 0 || health2 - damage2 >= 0);
-
-            if(health - damage < 0 ) {
-                result = String.format("%s attacks %s; %s now has %d health and is dead. %s wins.\n", fighter2.name, fighter1.name, fighter1.name, score, fighter2.name);
-                return result;
-            }
-            if(health2 - damage2 < 0) {
-                result =  String.format("%s attacks %s; %s now has %d health and is dead. %s wins.\n", fighter1.name, fighter2.name, fighter2.name, score2, fighter1.name);
-                return result;
-            }
-
-        }
-        return null;
+        return result;
     }
 }
 
