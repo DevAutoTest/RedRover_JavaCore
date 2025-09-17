@@ -1,4 +1,4 @@
-package Lesson9_Constructors.lesson2;
+package Lesson10_Polymorphism;
 
 /**
  * Задача №3

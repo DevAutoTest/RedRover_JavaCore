@@ -1,4 +1,4 @@
-package Lesson9_Constructors.lesson2;
+package Lesson10_Polymorphism;
 
 /**
  *  * Необходимо создать класс Director с теми же методами,

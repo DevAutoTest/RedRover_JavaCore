@@ -1,4 +1,4 @@
-package Lesson9_Constructors.lesson2;
+package Lesson10_Polymorphism;
 
 public class Main {
     public static void main(String[] args) {
