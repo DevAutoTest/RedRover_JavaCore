@@ -1,6 +1,7 @@
 package Lesson9_Constructors.codewars;
 
 /**
+ * см правильное решени ена картинке в resources C:\Users\Elena\IdeaProjects\RedRover_JavaCore\src\resources\Fighter_Lesson9.png
  * declare_winner(Fighter("Lew", 10, 2), Fighter("Harry", 5, 4), "Lew") => "Lew"
  * <p>
  * Lew attacks Harry; Harry now has 3 health.
